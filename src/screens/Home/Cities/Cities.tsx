@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React from 'react';
 import {
   ActivityIndicator,
   FlatList,
@@ -9,9 +9,12 @@ import {
   View,
 } from 'react-native';
 import {useStyles} from 'react-native-unistyles';
-import {useGlobalContainer} from '../../../providers/global.provider';
 import {useCity, usePullToRefresh} from './Cities.hooks';
-import {TCityItemProps, TForecastItemProps} from './Cities.interface';
+import {
+  TCitiesProps,
+  TCityItemProps,
+  TForecastItemProps,
+} from './Cities.interface';
 import {CitiesStyleSheet} from './Cities.styles';
 import {useIsFetching} from '@tanstack/react-query';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
@@ -102,9 +105,8 @@ const Space: React.FC = () => {
   return <View style={styles.space} />;
 };
 
-export const Cities: React.FC = () => {
+export const Cities: React.FC<TCitiesProps> = ({cities}) => {
   const {styles} = useStyles(CitiesStyleSheet);
-  const {state} = useGlobalContainer();
   const onRefresh = usePullToRefresh();
   const isFetching = useIsFetching();
   const insets = useSafeAreaInsets();
@@ -112,7 +114,7 @@ export const Cities: React.FC = () => {
   return (
     <View style={styles.container(insets)}>
       <FlatList
-        data={state.cities}
+        data={cities}
         renderItem={renderItem}
         keyExtractor={keyExtractor}
         ItemSeparatorComponent={Space}

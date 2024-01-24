@@ -7,3 +7,7 @@ export type TCityItemProps = {
 export type TForecastItemProps = {
   index: number;
 } & TForecastDay;
+
+export type TCitiesProps = {
+  cities: string[];
+};

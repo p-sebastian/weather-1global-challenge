@@ -7,7 +7,7 @@ import {Cities} from './Cities/Cities';
 import {useGlobalContainer} from '../../providers/global.provider';
 
 export const HomeScreen: React.FC = () => {
-  const {search, setSearch} = useGlobalContainer();
+  const {search, state, setSearch} = useGlobalContainer();
   const {styles, theme} = useStyles(HomeStyleSheet);
 
   return (
@@ -21,7 +21,7 @@ export const HomeScreen: React.FC = () => {
           placeholder="Please type a city"
         />
       </View>
-      {!search ? <Cities /> : <Results />}
+      {!search ? <Cities cities={state.cities} /> : <Results />}
     </View>
   );
 };

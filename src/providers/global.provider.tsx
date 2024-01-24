@@ -26,7 +26,10 @@ const useContainer = () => {
   const {cities} = state;
 
   const addCity = useCallback((id: string) => {
-    setState(x => ({...x, cities: [id, ...x.cities]}));
+    setState(x => ({
+      ...x,
+      cities: [id, ...x.cities].filter((v, i, a) => a.indexOf(v) === i),
+    }));
   }, []);
 
   const removeCity = useCallback(
@@ -45,7 +48,9 @@ const useContainer = () => {
   useEffect(() => {
     (async () => {
       const cities = await rehydrate();
-      setState(x => ({...x, cities}));
+      if (cities.length) {
+        setState(x => ({...x, cities}));
+      }
       didHydrate.current = true;
     })();
   }, []);
