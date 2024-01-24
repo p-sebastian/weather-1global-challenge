@@ -18,6 +18,7 @@ import {
 import {CitiesStyleSheet} from './Cities.styles';
 import {useIsFetching} from '@tanstack/react-query';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {Timeline} from './Timeline/Timeline';
 
 const Forecast: React.FC<TForecastItemProps> = props => {
   const {styles} = useStyles(CitiesStyleSheet);
@@ -67,6 +68,8 @@ const Item: React.FC<TCityItemProps> = item => {
   const {name, country} = data.location;
   const {temp_c, condition} = data.current;
   const {forecastday} = data.forecast;
+  const [first, second] = forecastday;
+  const hours = [...first.hour, ...second.hour];
 
   return (
     <View style={styles.card}>
@@ -88,6 +91,7 @@ const Item: React.FC<TCityItemProps> = item => {
         </View>
         <Text style={[styles.city, styles.grey]}>{condition.text}</Text>
       </View>
+      <Timeline hours={hours} />
       {forecastday.map((day, i) => (
         <Forecast key={day.date} {...day} index={i} />
       ))}
