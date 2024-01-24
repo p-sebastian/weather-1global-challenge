@@ -1,4 +1,7 @@
 export enum ERootStack {
   Home = 'Home',
-  Search = 'Search',
 }
+
+export type TRootStackParamList = {
+  [ERootStack.Home]: undefined;
+};

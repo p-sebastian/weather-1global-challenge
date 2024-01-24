@@ -2,10 +2,11 @@ import {} from 'react-native-unistyles';
 
 export const lightTheme = {
   colors: {
-    typography: '#000000',
     background: '#ffffff',
+    lightGrey: '#BDBDBD',
+    darkBlue: '#002938',
   },
-  margins: {
+  spacing: {
     xs: 4,
     sm: 8,
     md: 16,

@@ -1,21 +1,17 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
-import {ERootStack} from './Root.interface';
-import {SearchScreen} from './Search/Search.screen';
+import {ERootStack, TRootStackParamList} from './Root.interface';
 import {HomeScreen} from './Home/Home.screen';
 
-const {Navigator, Screen} = createNativeStackNavigator();
+const {Navigator, Screen} = createNativeStackNavigator<TRootStackParamList>();
 
 export const RootStack: React.FC = () => {
   return (
     <Navigator>
-      <Screen name={ERootStack.Home} component={HomeScreen} />
       <Screen
-        name={ERootStack.Search}
-        component={SearchScreen}
-        options={{
-          presentation: 'fullScreenModal',
-        }}
+        name={ERootStack.Home}
+        component={HomeScreen}
+        options={{title: '1Global Weather'}}
       />
     </Navigator>
   );
