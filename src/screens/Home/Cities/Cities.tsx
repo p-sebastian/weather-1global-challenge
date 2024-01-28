@@ -56,7 +56,7 @@ const Item: React.FC<TCityItemProps> = item => {
   if (isPending) {
     return (
       <View style={styles.card}>
-        <ActivityIndicator />
+        <ActivityIndicator accessibilityHint="loading" />
       </View>
     );
   }
@@ -95,13 +95,26 @@ const Item: React.FC<TCityItemProps> = item => {
       {forecastday.map((day, i) => (
         <Forecast key={day.date} {...day} index={i} />
       ))}
-      <TouchableOpacity style={styles.absolute} onPress={onRemove}>
+      <TouchableOpacity
+        style={styles.absolute}
+        onPress={onRemove}
+        accessibilityRole="button"
+        accessibilityLabel="remove city">
         <Text style={styles.cross}>X</Text>
       </TouchableOpacity>
     </View>
   );
 };
 
+const NoCities: React.FC = () => {
+  const {styles} = useStyles(CitiesStyleSheet);
+
+  return (
+    <View style={styles.noCities}>
+      <Text>Please add a city under search</Text>
+    </View>
+  );
+};
 const renderItem: ListRenderItem<string> = ({item}) => <Item id={item} />;
 const keyExtractor = (item: string) => item;
 const Space: React.FC = () => {
@@ -123,6 +136,7 @@ export const Cities: React.FC<TCitiesProps> = ({cities}) => {
         keyExtractor={keyExtractor}
         ItemSeparatorComponent={Space}
         onRefresh={onRefresh}
+        ListEmptyComponent={NoCities}
         refreshing={Boolean(isFetching)}
       />
     </View>

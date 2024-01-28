@@ -18,7 +18,12 @@ const Item: React.FC<TLocation> = item => {
   const {name, country} = item;
 
   return (
-    <TouchableOpacity style={styles.item} onPress={onPress} disabled={disabled}>
+    <TouchableOpacity
+      accessibilityRole="button"
+      accessibilityLabel="add city"
+      style={styles.item}
+      onPress={onPress}
+      disabled={disabled}>
       <Text style={styles.text(disabled)}>
         <Text style={styles.bold}>{name}</Text>, {country}
       </Text>
@@ -45,7 +50,7 @@ export const Results: React.FC = () => {
   if (isLoading) {
     return (
       <View style={styles.activityBox}>
-        <ActivityIndicator />
+        <ActivityIndicator accessibilityHint="loading" />
       </View>
     );
   }
@@ -55,7 +60,7 @@ export const Results: React.FC = () => {
   }
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} accessibilityHint="results">
       <FlatList
         data={data}
         renderItem={renderItem}
