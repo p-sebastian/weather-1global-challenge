@@ -19,9 +19,9 @@ const rehydrate = async (): Promise<string[]> => {
 type TState = {
   cities: string[];
 };
-const useContainer = () => {
+const useContainer = (initial?: string) => {
   const didHydrate = useRef(false);
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState(initial ?? '');
   const [state, setState] = useState<TState>({cities: []});
   const {cities} = state;
 

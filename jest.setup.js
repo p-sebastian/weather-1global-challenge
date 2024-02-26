@@ -1,3 +1,4 @@
+import '@testing-library/react-native/extend-expect';
 import {jest} from '@jest/globals';
 import mockAsyncStorage from '@react-native-async-storage/async-storage/jest/async-storage-mock';
 

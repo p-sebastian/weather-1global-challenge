@@ -67,4 +67,9 @@ export const CitiesStyleSheet = createStyleSheet(({spacing, colors}) => ({
   third: {
     width: '33%',
   },
+  noCities: {
+    padding: spacing.md,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 }));

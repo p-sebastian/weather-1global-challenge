@@ -18,6 +18,8 @@ export const HomeScreen: React.FC = () => {
           value={search}
           onChangeText={setSearch}
           placeholderTextColor={theme.colors.lightGrey}
+          accessibilityRole="search"
+          accessibilityLabel="search"
           placeholder="Please type a city"
         />
       </View>

@@ -1,0 +1,47 @@
+[
+  {
+    "id": 568120,
+    "name": "Berlin",
+    "region": "Berlin",
+    "country": "Germany",
+    "lat": 52.52,
+    "lon": 13.4,
+    "url": "berlin-berlin-germany"
+  },
+  {
+    "id": 193056,
+    "name": "Berlare",
+    "region": "",
+    "country": "Belgium",
+    "lat": 51.03,
+    "lon": 4.0,
+    "url": "berlare-belgium"
+  },
+  {
+    "id": 2322383,
+    "name": "Berlin",
+    "region": "Usulutan",
+    "country": "El Salvador",
+    "lat": 13.5,
+    "lon": -88.53,
+    "url": "berlin-usulutan-el-salvador"
+  },
+  {
+    "id": 2610505,
+    "name": "Berlin",
+    "region": "New Hampshire",
+    "country": "United States of America",
+    "lat": 44.47,
+    "lon": -71.19,
+    "url": "berlin-new-hampshire-united-states-of-america"
+  },
+  {
+    "id": 3330347,
+    "name": "Berltsum",
+    "region": "Friesland",
+    "country": "Netherlands",
+    "lat": 53.24,
+    "lon": 5.65,
+    "url": "berltsum-friesland-netherlands"
+  }
+]
